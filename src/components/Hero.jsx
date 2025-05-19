@@ -31,8 +31,10 @@ const Hero = () => {
           Join our growing platform and help streamline your payment operations.
         </p>
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 pt-4">
-          <Button asChild className="bg-white text-paytech-purple hover:bg-paytech-accent hover:text-white border-2 border-paytech-purple transition-all duration-300 shadow-lg hover:shadow-paytech-purple/20 px-8 py-6 rounded-full text-lg font-semibold">
-            <Link to="/auth">Get Started</Link>
+          <Button asChild className="bg-paytech-dark/80 border border-paytech-purple/50 hover:bg-paytech-purple/20 text-white transition-all duration-300 shadow-lg hover:shadow-paytech-purple/20 px-8 py-6 rounded-full text-lg font-semibold group">
+            <Link to="/auth">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-paytech-purple to-paytech-accent group-hover:from-white group-hover:to-white transition-all duration-300">Get Started</span>
+            </Link>
           </Button>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from 'react-router-dom';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -38,7 +38,7 @@ const Navbar = () => {
             onClick={toggleMobileMenu}
             aria-label="Toggle navigation menu"
           >
-            <Menu size={24} />
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
           {/* Desktop Navigation */}
@@ -65,8 +65,8 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center">
             <Link to="/auth">
-              <Button className="bg-white text-paytech-purple hover:bg-paytech-accent hover:text-white border-2 border-paytech-purple transition-all duration-300 shadow-lg hover:shadow-paytech-purple/20 px-6 py-2 rounded-full font-semibold">
-                Get Started
+              <Button className="bg-paytech-dark/80 border border-paytech-purple/50 hover:bg-paytech-purple/20 text-white transition-all duration-300 shadow-lg hover:shadow-paytech-purple/20 px-6 py-2 rounded-full font-semibold group">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-paytech-purple to-paytech-accent group-hover:from-white group-hover:to-white transition-all duration-300">Get Started</span>
               </Button>
             </Link>
           </div>
@@ -74,40 +74,33 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 px-6 border-t border-white/10 mt-2">
+          <div className="md:hidden py-4 px-6 border-t border-white/10 mt-2 bg-paytech-dark/95 backdrop-blur-md rounded-b-2xl">
             <nav className="flex flex-col space-y-4">
               <Link
                 to="/"
-                className={`text-sm transition-colors ${location.pathname === '/' ? 'text-white' : 'text-paytech-gray hover:text-white'}`}
+                className={`text-sm font-medium py-2 px-4 rounded-lg transition-colors ${location.pathname === '/' ? 'bg-paytech-purple/20 text-white' : 'text-paytech-gray hover:bg-paytech-purple/10 hover:text-white'}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 to="/features"
-                className={`text-sm transition-colors ${location.pathname === '/features' ? 'text-white' : 'text-paytech-gray hover:text-white'}`}
+                className={`text-sm font-medium py-2 px-4 rounded-lg transition-colors ${location.pathname === '/features' ? 'bg-paytech-purple/20 text-white' : 'text-paytech-gray hover:bg-paytech-purple/10 hover:text-white'}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Features
               </Link>
               <Link
                 to="/about"
-                className={`text-sm transition-colors ${location.pathname === '/about' ? 'text-white' : 'text-paytech-gray hover:text-white'}`}
+                className={`text-sm font-medium py-2 px-4 rounded-lg transition-colors ${location.pathname === '/about' ? 'bg-paytech-purple/20 text-white' : 'text-paytech-gray hover:bg-paytech-purple/10 hover:text-white'}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
               </Link>
-              <Link
-                to="/customers"
-                className={`text-sm transition-colors ${location.pathname === '/customers' ? 'text-white' : 'text-paytech-gray hover:text-white'}`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Customers
-              </Link>
               <div className="pt-2">
                 <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="bg-white text-paytech-purple hover:bg-paytech-accent hover:text-white border-2 border-paytech-purple transition-all duration-300 shadow-lg hover:shadow-paytech-purple/20 w-full py-2 rounded-full font-semibold">
-                    Get Started
+                  <Button className="w-full bg-paytech-dark/80 border border-paytech-purple/50 hover:bg-paytech-purple/20 text-white transition-all duration-300 shadow-lg hover:shadow-paytech-purple/20 py-2 rounded-full font-semibold group">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-paytech-purple to-paytech-accent group-hover:from-white group-hover:to-white transition-all duration-300">Get Started</span>
                   </Button>
                 </Link>
               </div>
